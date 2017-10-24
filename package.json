@@ -9,8 +9,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com/andreybejarano/altran-frontend.git"
+    "url": "git+ssh://git@github.com/andreybejarano/altran-frontend.git"
   },
+  "bugs": {
+    "url": "https://github.com/andreybejarano/altran-frontend/issues"
+  },
+  "homepage": "https://github.com/andreybejarano/altran-frontend#readme",
   "author": "Erik Andrey Bejarano Sanchez <andreybejarano@gmail.com>",
   "license": "MIT",
   "dependencies": {
