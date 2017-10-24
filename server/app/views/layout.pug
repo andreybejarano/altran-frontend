@@ -1,0 +1,17 @@
+extends base
+block head
+	link(rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css")
+	//- inject:css
+	link(rel="stylesheet", href="/altran-front/build/frontend-altran.css")
+	//- endinject
+block footer
+	//- inject:js
+	script(src="/altran-front/build/frontend-altran.js")
+	//- endinject
+	script(type='text/javascript' src='//code.jquery.com/jquery-3.2.1.min.js')
+	script(type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js')
+	script.
+		(function () {
+			angular.bootstrap(document, ['altranfront'], {strictDi: true});
+		})();
+

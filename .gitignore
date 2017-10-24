@@ -1,0 +1,13 @@
+npm-debug.log*
+build
+node_modules
+.npm
+.node_repl_history
+.sass-cache
+.vscode
+yarn.lock
+client/app/**/*.html
+client/css
+client/app/app.templates.js
+.tmp
+package-lock.json

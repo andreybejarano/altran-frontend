@@ -1,0 +1,6 @@
+client/vendor/*
+client/**/*.ts
+build/*
+docs/*
+node_modules/*
+.tmp/*
