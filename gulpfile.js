@@ -58,6 +58,16 @@ gulp.task('build-typescript', ['template-cache'], () => {
 });
 
 /**
+ * Copy images if build directory
+ */
+gulp.task('images', () => {
+	gulp.src(`${config.images}**/*`)
+		.pipe(plugins.imagemin())
+		.pipe(gulp.dest(`${config.build}images`));
+
+});
+
+/**
  * Compiling pug into html
  */
 gulp.task('compile-pug', () => {
@@ -120,7 +130,7 @@ gulp.task('inject', () => {
 
 });
 
-gulp.task('default', () => runSequence('clean', 'watch', 'build-typescript', 'styles-app', 'inject', 'serve-dev'));
+gulp.task('default', () => runSequence('clean', 'watch', 'build-typescript', 'images', 'styles-app', 'inject', 'serve-dev'));
 
 /**
  * 

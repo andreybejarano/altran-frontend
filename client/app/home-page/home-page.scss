@@ -1,4 +1,16 @@
 home-page {
-	background: red;
-	color: red;
+	.img-habitant {
+		height: 230px
+	}
+	.title-list {
+		margin: 0;
+	}
+	dl{
+		margin: 0;		
+	}
+	.card {
+		.card-content {
+			height: 431px;
+		}
+	}
 }

@@ -12,7 +12,7 @@ class DatacensusService {
 		return new Promise((resolve, reject) => {
 			request(options)
 				.then(data => {
-					resolve(data);
+					resolve(data.Brastlewark);
 				})
 				.catch(error => {
 					reject(new Error(error));
