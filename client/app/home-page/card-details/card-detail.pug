@@ -1,0 +1,30 @@
+div.al-card-details(infinite-scroll="$ctrl.loadMore()" infinite-scroll-distance="0")
+	.col.xl3(ng-repeat="habitant in $ctrl.habitants | limitTo:$ctrl.numberToDisplay")
+		.card
+			.card-image
+				img.img-habitant(ng-src="{{habitant.thumbnail}}")
+				.card-title 
+					h4 {{habitant.name}}
+			.card-content
+				.age 
+					b Edad: 
+					span {{habitant.age}}
+				.weight
+					b Peso: 
+					span {{habitant.weight}}
+				.height
+					b Altura: 
+					span {{habitant.height}}
+				.hair_color
+					b Color de pelo: 
+					span(style="background-color: {{habitant.hair_color}}; color: {{habitant.hair_color}};") hair_color
+				.professions
+					dl 
+						dd.title-list
+							b Profesiones: 
+						dd(ng-repeat="profession in habitant.professions") - {{profession}}
+				.friends
+					dl 
+						dd.title-list
+							b Amigos: 
+						dd(ng-repeat="friend in habitant.friends") - {{friend}}

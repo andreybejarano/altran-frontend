@@ -2,8 +2,8 @@ import { HabitantsService } from "../services/habitants.service";
 export const HomePageComponent = {
 	templateUrl: 'home-page/home-page.html',
 	controller: class HomePageComponent {
-		$scope: ng.IScope;
-		HabitantsService: HabitantsService;
+		private $scope: ng.IScope;
+		private HabitantsService: HabitantsService;
 		private habitants: Object;
 		constructor($scope, HabitantsService) {
 			'ngInject';
@@ -17,7 +17,7 @@ export const HomePageComponent = {
 
 		setHabitants() {
 			this.HabitantsService.getHabitants()
-				.then(data => {
+				.then((data:any) => {
 					this.habitants = data;
 				})
 				.catch(error => this.habitants = {});	
