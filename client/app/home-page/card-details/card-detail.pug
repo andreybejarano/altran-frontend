@@ -1,5 +1,27 @@
-div.al-card-details(infinite-scroll="$ctrl.loadMore()" infinite-scroll-distance="0")
-	.col.xl3(ng-repeat="habitant in $ctrl.habitants | limitTo:$ctrl.numberToDisplay")
+.row.container-search
+	.input-field.col.xl3.l3.m4.s12
+		label(for="txtName") Nombre
+		input(type="text" name="txtName" ng-model="$ctrl.filter.name" id="txtName")
+	.input-field.col.xl2.l2.m4.s12
+		label(for="txtProfessions") Profesiones
+		input(type="text" name="txtProfessions" ng-model="$ctrl.filter.professions" id="txtFriends")
+	.input-field.col.xl2.l2.m4.s12
+		label(for="txtFriends") Amigos
+		input(type="text" name="txtFriends" ng-model="$ctrl.filter.friends" id="txtFriends")
+	.input-field.col.xl2.l2.m3.s12
+		label(for="txtHairColor") Color de pelo
+		input(type="text" name="txtHairColor" ng-model="$ctrl.filter.hair_color" id="txtHairColor")
+	.input-field.col.xl1.l1.m3.s4
+		label(for="txtAge") Edad
+		input(type="text" name="txtAge" ng-model="$ctrl.filter.age" id="txtAge")
+	.input-field.col.xl1.l1.m3.s4
+		label(for="txtWeight") Peso
+		input(type="text" name="txtWeight" ng-model="$ctrl.filter.height" id="txtWeight")
+	.input-field.col.xl1.l1.m3.s4
+		label(for="txtHeight") Altura
+		input(type="text" name="txtHeight" ng-model="$ctrl.filter.weight" id="txtHeight")
+.row.al-card-details(infinite-scroll="$ctrl.loadMore()" infinite-scroll-distance="2")
+	.col.xl3.l3.m6.s12(ng-repeat="habitant in $ctrl.habitants  | filter: $ctrl.filter | filter:habitant.professions:$ctrl.filter.professions | filter:habitant.friends:$ctrl.filter.friends | limitTo:$ctrl.numberToDisplay")
 		.card
 			.card-image
 				img.img-habitant(ng-src="{{habitant.thumbnail}}")
@@ -17,7 +39,7 @@ div.al-card-details(infinite-scroll="$ctrl.loadMore()" infinite-scroll-distance=
 					span {{habitant.height}}
 				.hair_color
 					b Color de pelo: 
-					span(style="background-color: {{habitant.hair_color}}; color: {{habitant.hair_color}};") hair_color
+					span(ng-value="habitant.hair_color" style="background-color: {{habitant.hair_color}}; color: {{habitant.hair_color}};") hair_color
 				.professions
 					dl 
 						dd.title-list

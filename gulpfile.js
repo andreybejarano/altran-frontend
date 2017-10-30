@@ -11,6 +11,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const buffer = require('vinyl-buffer');
 const series = require('stream-series');
 const runSequence = require('run-sequence');
+const wait = require('gulp-wait');
 
 /**
  * Cleans build folder.
@@ -88,18 +89,6 @@ gulp.task('watch', [], () => {
 });
 
 /**
- * Compiling scss into css
- */
-
-gulp.task('styles-app', () => {
-	return gulp
-		.src(config.mainscss)
-		.pipe(plugins.sass())
-		.pipe(plugins.rename(`${config.projectName}.css`))
-		.pipe(gulp.dest(config.build));
-});
-
-/**
  * Init server
  */
 gulp.task('serve-dev', () => {
@@ -120,14 +109,25 @@ gulp.task('inject', () => {
 		.pipe(plugins.inject(styleApp, injectOptions))
 		.pipe(gulp.dest(config.views));
 
-
 	const layoutStream = gulp.src(`${config.views}layout.pug`)
 		.pipe(plugins.inject(series(styleApp, scriptApp), injectOptions))
 		.pipe(gulp.dest(config.views));
 
-
 	return eventStream.merge(errorPageStream, layoutStream);
 
+});
+
+/**
+ * Compiling scss into css
+ */
+
+gulp.task('styles-app', () => {
+	return gulp
+		.src(config.mainscss)
+		.pipe(wait(500))
+		.pipe(plugins.sass())
+		.pipe(plugins.rename(`${config.projectName}.css`))
+		.pipe(gulp.dest(config.build));
 });
 
 gulp.task('default', () => runSequence('clean', 'watch', 'build-typescript', 'images', 'styles-app', 'inject', 'serve-dev'));
