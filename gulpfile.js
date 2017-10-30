@@ -130,6 +130,7 @@ gulp.task('styles-app', () => {
 		.pipe(gulp.dest(config.build));
 });
 
+gulp.task('build', () => runSequence('clean', 'build-typescript', 'images', 'styles-app', 'inject'));
 gulp.task('default', () => runSequence('clean', 'watch', 'build-typescript', 'images', 'styles-app', 'inject', 'serve-dev'));
 
 /**

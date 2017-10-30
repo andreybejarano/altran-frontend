@@ -1,5 +1,6 @@
 client/vendor/*
 client/**/*.ts
+client/test/**/*.js
 build/*
 docs/*
 node_modules/*

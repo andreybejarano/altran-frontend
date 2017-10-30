@@ -2,16 +2,16 @@ module.exports = function (config) {
 	config.set({
 		basePath: '',
 		files: [
+			'node_modules/angular/angular.js',
+			'node_modules/angular-mocks/angular-mocks.js',
 			'build/*.js',
-			'client/tests/**/*test.js'
+			'client/test/**/*.test.js'
 		],
-		frameworks: ['jasmine'],
-		browsers: ['Chrome', 'Firefox'],
-		autoWatch: false,
 		singleRun: false,
+		frameworks: ['jasmine'],
+		browsers: ['Chrome'],
 		plugins: [
 			'karma-chrome-launcher',
-			'karma-firefox-launcher',
 			'karma-jasmine'
 		]
 	});

@@ -3,6 +3,11 @@ const config = require('../../config');
 const request = require('request-promise');
 
 class DatacensusService {
+	/**
+	 * Get data census
+	 * @description This method gat data of API and return promise with data census
+	 * @return {Promise} Resolve data census or reject error
+	 */
 	getDatacensus() {
 		const options = {
 			method: 'GET',

@@ -4,8 +4,9 @@
   "description": "Technical test frontend - Altran",
   "main": "./server/index.js",
   "scripts": {
-    "start": "node server/index.js",
-    "test-client": "karma start karma.conf.js"
+    "build": "gulp build",
+    "start": "gulp",
+    "test": "karma start karma.conf.js"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
     "request-promise": "^4.2.2"
   },
   "devDependencies": {
+    "angular-mocks": "^1.6.6",
     "babel-preset-es2015": "^6.24.1",
     "babelify": "^7.3.0",
     "browserify": "^14.5.0",
@@ -62,7 +64,7 @@
     "jasmine": "^2.8.0",
     "karma": "^1.7.1",
     "karma-chrome-launcher": "^2.2.0",
-    "karma-firefox-launcher": "^1.0.1",
+    "karma-jasmine": "^1.1.0",
     "run-sequence": "^2.2.0",
     "stream-series": "^0.1.1",
     "tsify": "^3.0.3",

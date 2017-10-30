@@ -10,4 +10,3 @@ client/app/**/*.html
 client/css
 client/app/app.templates.js
 .tmp
-package-lock.json

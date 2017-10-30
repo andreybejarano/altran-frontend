@@ -1,4 +1,4 @@
-import { HabitantsService } from "../services/habitants.service";
+import { HabitantsService } from "../services/services";
 export const HomePageComponent = {
 	templateUrl: 'home-page/home-page.html',
 	controller: class HomePageComponent {
