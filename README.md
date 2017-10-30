@@ -57,13 +57,3 @@ $ npm start
 ```
 $ npm run test
 ```
-
-## Instalation
-```
-$ npm install
-```
-
-## Run
-```
-gulp
-```
